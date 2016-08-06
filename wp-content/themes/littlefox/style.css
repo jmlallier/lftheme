@@ -598,7 +598,7 @@ ul.navigation li a:hover {
 }
 
 .navbar-list li.current-menu-item a {
-  color: #555;
+  color: #333;
 }
 
 .navbar-toggle {
@@ -632,9 +632,6 @@ ul.navigation li a:hover {
   display: block;
 }
 
-/* .has-docked-nav .navbar > .container {
-  width: 80%;
-} */
 /* === SCROLL TO TOP BUTTON === */
 
 .topButton {
@@ -787,6 +784,8 @@ img.full-width {
 
 footer {
   background-color: #fbfbfb;
+  padding-top: 50px;
+  border-top: 1px solid #999;
 }
 
 footer h5 {
@@ -1063,7 +1062,7 @@ section .site-overview h1 {
 }
 
 #comments h3 {
-  text-align: center;
+  color: #555;
 }
 
 #comments h4 {
@@ -1088,6 +1087,11 @@ section .site-overview h1 {
   font-size: 0.96em;
 }
 
+#comments p,
+#comments a {
+  color: #555;
+}
+
 /* specific WP comment styles */
 
 .comments-title {
@@ -1095,6 +1099,11 @@ section .site-overview h1 {
   position: relative;
   width: 100%;
   text-align: center;
+  color: #555;
+}
+
+.comment-reply-title {
+  text-align: left;
 }
 
 .comment-respond {
@@ -1104,7 +1113,6 @@ section .site-overview h1 {
 }
 
 .comment-respond label {
-  color: #ceb8b8;
   display: block;
   font-weight: bold;
   padding: 0;
