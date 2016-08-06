@@ -15,8 +15,8 @@
 ===================================================== -->
 <footer>
   <div class="container">
-    <div class="row">
-      <div class="four columns">
+    <div class="columns has-text-centered">
+      <div class="column is-one-third">
         <div class="footer-about">
           <h5>About Us</h5>
           <p>
@@ -24,14 +24,18 @@
           </p>
         </div>
       </div>
-      <div class="four columns">
+      <div class="column is-one-third">
         <div class="news">
           <h5>Sign up for news + updates</h5>
-          <form>
+          <p class="control has-addons">
+            <input type="text" class="input">
+            <button class="button">></button>
+          </p>
+           <!-- <form>
             <label for=""></label>
             <input type="search" placeholder="Your email address">
             <button type="submit">></button>
-          </form>
+          </form> -->
         </div>
         <div class="social">
           <h5>Get Social</h5>
@@ -43,9 +47,9 @@
           </ul>
         </div>
       </div>
-      <div class="four columns">
+      <div class="column is-one-third">
         <div class="latest-posts">
-          <h5>Latest Posts</h5>
+          <h5>Latest Posts</p>
           <ul class="latest">
             <li><a href="#">Blog One</a></li>
             <li><a href="#">Blog Two</a></li>

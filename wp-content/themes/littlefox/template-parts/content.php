@@ -6,7 +6,6 @@
  *
  * @package Little_Fox
  */
-
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -21,13 +20,13 @@
     if ( 'post' === get_post_type() ) : ?>
 
     <div class="post-details">
-      <i class="fa fa-user"></i> <?php the_author(); ?>
+      <i class="fa fa-user"></i> <?php print get_the_author(); ?>
       <i class="fa fa-clock-o"></i> <?php the_date(); ?>
-      <i class="fa fa-folder"></i> <?php the_category(', '); ?>
-      <i class="fa fa-tag"></i> <?php the_tags('', ', ', ''); ?>
-      <div class="post-comments-badge"><a href="<?php echo get_comments_link( $post->ID ); ?>"><i class="fa fa-comments"></i> <?php comments_number( '0', '1', '%' ); ?></a></div><!-- .post-comments-badge -->
+      <?php if(has_category()) { ?> <i class="fa fa-folder"></i> <?php the_category(', '); } ?>
+      <?php if(has_tag()) { ?><i class="fa fa-tag"></i> <?php the_tags('', ', ', ''); } ?>
+      <?php edit_post_link('Edit', '<i class="fa fa-pencil"></i> '); ?><!-- if logged in, option to edit -->
+      <div class="post-comments-badge"><a href="<?php print get_comments_link( $post->ID ); ?>"><i class="fa fa-comments"></i> <?php comments_number( '0', '1', '%' ); ?></a></div><!-- .post-comments-badge -->
       
-      <?php edit_post_link('Edit this post', '<div><i class="fa fa-pencil"></i> ', '</div>'); ?><!-- if logged in, option to edit -->
     </div><!-- .post-details -->  
 
     <?php

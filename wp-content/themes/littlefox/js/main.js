@@ -113,8 +113,11 @@ $(document).ready(function() {
   function init() {
     $window.on('resize', resize)
     $('a[href^="#"]').on('click', smoothScroll)
+    $('input').removeAttr('size')
+    
   }
   
   init();
 
 });
+

@@ -24,7 +24,7 @@ function lf_output_mp_portfolio_images( $portfolio_images_key, $img_size = 'smal
 
 <!-- PORTFOLIO
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<section id="portfolio">
+<section id="portfolio" class="container">
     <div class="header-title">
       <h1><?php echo $portfolio_title; ?></h1>
     </div><!-- .header-title -->

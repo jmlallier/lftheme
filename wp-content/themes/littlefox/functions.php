@@ -118,12 +118,12 @@ require_once('wp_bootstrap_navwalker.php');
  */
 function littlefox_scripts() {
   wp_enqueue_style( 'normalize', get_template_directory_uri() . '/assets/css/normalize.css' ); // normalize.css
-  wp_enqueue_style( 'littlefox-skeleton', get_template_directory_uri() . '/assets/css/skeleton.css'); // skeleton.css
   wp_enqueue_style( 'littlefox-bulma', get_template_directory_uri() . '/assets/css/bulma.css' ); // Bulma
+  wp_enqueue_style( 'littlefox-skeleton', get_template_directory_uri() . '/assets/css/skeleton.css'); // skeleton.css
   wp_enqueue_style( 'littlefox-bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.css' ); // Bootstrap
-	wp_enqueue_style( 'littlefox-style', get_stylesheet_uri() ); // style.css
+  wp_enqueue_style( 'littlefox-style', get_stylesheet_uri() ); // style.css
   wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome/css/font-awesome.min.css'); // font-awesome
-  
+
 
   wp_deregister_script('jquery'); // deregister WP default jquery ver1.2.1
   wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js'); // register current jquery ver2.2.0

@@ -13,7 +13,7 @@ $blog_bg_color = get_field( 'blog_bg_color' );
 if( ($blog_bg == 'yes' && $blog_choice == 'image') && !empty($blog_bg_image)):
 ?>
 
-  <section id="blog" data-type="background" data-speed="10" style="background: url('<?php echo $blog_bg_image['url']; ?>') ;" >
+  <section id="blog" class="container" data-type="background" data-speed="10" style="background: url('<?php echo $blog_bg_image['url']; ?>') ;" >
 
 <?php
     elseif(($blog_bg == 'yes' && $blog_choice == 'color') && !empty($blog_bg_color)): 
@@ -29,11 +29,7 @@ if( ($blog_bg == 'yes' && $blog_choice == 'image') && !empty($blog_bg_image)):
       
       
     
-  <div class="container">
-    <div class="row">
       <div class="headline-box" id="blog-headline">
         <a href="/blog"><h3><?php echo $blog_headline; ?></h3></a>
       </div><!-- .headline-box -->
-    </div><!-- .row -->
-  </div><!-- .container -->
 </section><!-- #blog -->

@@ -26,8 +26,8 @@ $contact_bg_color = get_field( 'contact_bg_color' );
       <section id="contact" data-type="background" data-speed="10" style="background: url('/wp-content/themes/littlefox/assets/img/Textures/pink_cup.png'); " >
   
 <?php endif; ?>
+   
    <div class="container">
-    <div class="row">
       <div class="header-title">
         <h1><?php echo $contact_title; ?></h1>
       </div><!-- .header-title -->
@@ -35,6 +35,33 @@ $contact_bg_color = get_field( 'contact_bg_color' );
       
       <?php echo do_shortcode( '[contact-form-7 id="7" title="Main Page Contact"]' ); ?>
 
-    </div><!-- .row -->
   </div><!-- .container -->
 </section><!-- #contact -->
+
+
+<!-- <label class="label">From</label>
+<div class="control is-horizontal">
+  <div class="control is-grouped">
+    <p class="control is-expanded">
+      [text* first-name class:input id:first-name placeholder"Joanna"]
+    </p>
+    <p class="control is-expanded">
+      [text* last-name class:input id:last-name placeholder"Doe"]
+    </p>
+  </div>
+</div>
+<label class="label">Email</label>
+<div class="control">
+    <p class="control is-fullwidth">
+      [email* email class:input id:email placeholder"yourname@gmail.com"]
+    </p>
+</div>
+<label class="label">Message</label>
+<div class="control">
+  <p class="control is-fullwidth">
+    [textarea* message class:textarea id:message placeholder"Reach out to us!"]
+  </p>
+</div>
+<p class="control">
+  [submit id:main-submit "Submit"]
+</p> -->

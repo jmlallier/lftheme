@@ -12,31 +12,31 @@ get_header(); ?>
 
 <!-- BLOG CONTENT 
 ===================================================== -->
-<div class="container">
-  <div class="row" id="primary">
-    <main id="content" class="twelve columns">
+<div class="container" id="primary">
+  <main id="content" >
+    <div class="columns">
+       <div class="column">  
+        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+          
+          <?php
+            while ( have_posts() ) : the_post();
 
-      <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+              get_template_part( 'template-parts/content', get_post_format() );
 
-		<?php
-		while ( have_posts() ) : the_post();
 
-			get_template_part( 'template-parts/content', get_post_format() );
+              // If comments are open or we have at least one comment, load up the comment template.
+              if ( comments_open() || get_comments_number() ) :
+                comments_template();
+              endif;
 
-			the_post_navigation();
+            endwhile; // End of the loop.
+          ?>
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+        </article><!-- #post-## -->
 
-		endwhile; // End of the loop.
-		?>
-    
-      </article><!-- #post-## -->
-
-    </main><!-- #content 10 columns offset by one -->
-  </div><!-- .row #primary -->
+      </div>
+    </div>
+  </main><!-- #content 10 columns offset by one -->
 </div><!-- .container -->
 
 <?php

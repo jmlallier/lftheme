@@ -360,21 +360,6 @@ object {
 
 /* === GLOBAL === */
 
-html {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  -webkit-box-sizing: inherit;
-  -moz-box-sizing: inherit;
-  box-sizing: inherit;
-}
-
-html, body {
-  overflow-x: hidden; /* Fix whitespace on right side of browser */
-}
 
 ::selection {
   color: #555;
@@ -404,6 +389,11 @@ p {
 
 /* === LAYOUT === */
 
+section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
 .bg-overlay {
   height: 100vh;
   width: 100%;
@@ -412,12 +402,12 @@ p {
 
 .header-title {
   text-align: center;
-  padding: 120px 0 0;
+  padding: 0 0 60px;
   position: relative;
 }
 
 .header-title h1 {
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 .header-title a {
@@ -435,16 +425,17 @@ p {
 }
 
 .headline-box {
-  position: absolute;
   text-align: center;
   width: 100%;
-  top: 45vh;
-  right: 0;
-  left: 0;
-  margin: auto;
-  padding: 0;
-  height: 1px;
   color: #fff;
+  white-space: nowrap;
+}
+
+.headline-box:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
 }
 
 .headline-box a {
@@ -461,7 +452,8 @@ p {
   border: 2px solid #fff;
   color: #fff;
   display: inline-block;
-  letter-spacing: 3px;
+  vertical-align: middle;
+  letter-spacing: 1px;
   padding: 33px 66px;
   font-size: 18px;
   text-transform: uppercase;
@@ -698,10 +690,6 @@ ul.navigation li a:hover {
   height: 100%;
 }
 
-#portfolio h1 {
-  margin-bottom: 100px;
-}
-
 #portfolio .row {
   margin-top: 50px;
 }
@@ -714,18 +702,13 @@ ul.navigation li a:hover {
 
 #about {
   height: 100%;
-  margin-bottom: 100px;
-}
-
-#about h1 {
-  margin-bottom: 50px;
 }
 
 #about img {
   width: 100%;
   height: auto;
   margin-top: 15px;
-  margin-bottom: 35px;
+  margin-bottom: 15px;
 }
 
 img.full-width {
@@ -738,19 +721,32 @@ img.full-width {
 #blog {
   height: 100%;
   width: 100%;
-  min-height: 500px;
   background-color: #ffffff;
+  padding: 0;
+  margin: 0;
+}
+
+#blog .headline-box:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
 }
 
 #blog .headline-box {
+  height: 50vh;
+  min-height: 500px;
   position: relative;
-  top: 22vh;
+  top: 0;
 }
 
 #blog .headline-box h3 {
+  display: inline-block;
+  vertical-align: middle;
   transition: font-size .6s ease;
   color: #fff;
   border: 2px solid #fff;
+  margin: 0;
 }
 
 #blog .headline-box h3:hover {
@@ -771,39 +767,29 @@ img.full-width {
   color: #333;
 }
 
-#main-contact {
-  padding-top: 60px;
-}
-
-#main-submit {
+.submit {
   margin-top: 10px;
-  background-color: #fff;
+  background-color: #fff !important;
   color: #999;
-  border: 1px solid #D1D1D1;
-  width: 94%;
+  border: 1px solid transparent;
+  width: 100%;
   float: left;
+  transition: border .3s ease-in, color .3s ease-in;
 }
 
-#main-submit:hover {
+.submit:hover, .submit:focus {
   background-color: #fbfbfb;
-  color: #b6b2b3;
+  border: 1px solid #333;
+  color: #333;
 }
 
 /* === FOOTER === */
 
 footer {
   background-color: #fbfbfb;
-  padding: 50px 0;
-  font-size: 13px;
-}
-
-footer .four.columns{
-  margin: 0 1%;
-  min-height: 250px;
 }
 
 footer h5 {
-  text-align: center;
   font-size: 18px;
   text-transform: uppercase;
   font-weight: bold;
@@ -821,11 +807,11 @@ footer p {
   height: 120px;
 }
 
-.news input[type="search"] {
-  float: left;
-  width: 79%;
-  margin: 0 1% 0 0;
-  padding: 0 0 0 6px;
+h5 {
+  margin-bottom: 30px;
+}
+
+.news input[type="text"] {
   background-color: #fbfbfb;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -833,29 +819,25 @@ footer p {
   -o-border-radius: 0;
   border-radius: 0;
   font-size: 15px;
+  width: 100% !important;
 }
 
 .news button {
-  display: inline-block;
-  float: left;
-  height: 38px;
-  width: 20%;
-  margin: 0;
-  padding: 0;
-  font-size: 13px;
+  font-size: 15px;
   color: #ceb8b8;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   -o-border-radius: 0;
   border-radius: 0;
+  background-color: #fbfbfb;
   border: 1px solid #ceb8b8;
+  transition: color 0.5s ease-in, border 0.5s ease-in;
 }
 
 .news button:hover {
-  background-color: #f1f1f1;
-  border: 1px solid #ceb8b8;
-  color: #999;
+  border: 1px solid #333;
+  color: #333;
 }
 
 .social {
@@ -876,7 +858,7 @@ footer p {
   width: 40px;
   text-align: center;
   margin: 0 5px;
-  padding: 0;
+  padding: 9px 0;
   border: 2px solid #ceb8b8;
 }
 
@@ -889,12 +871,15 @@ footer p {
 .social ul li a {
   font-weight: bold;
   font-size: 22px;
+  padding: 0;
+  margin: 0;
   color: #ceb8b8;
+  transition: color 0.5s ease-in;
 }
 
 .social ul li a:hover,
 .social ul li a:focus {
-  color: #999;
+  color: #333;
 }
 
 .latest-posts ul li {
@@ -903,8 +888,12 @@ footer p {
   text-align: center;
 }
 
+.latest-posts ul li a {
+  transition: color 0.3s ease-in;
+}
+
 .latest-posts ul li a:hover {
-  color: #999;
+  color: #333;
 }
 
 /* === BLOG OVERVIEW === */
@@ -1016,6 +1005,7 @@ section .site-overview h1 {
 #content img {
   width: 100%;
   height: auto;
+  margin: 1px 0;
 }
 
 /* === BLOG POST COMMENTS === */
@@ -1024,7 +1014,7 @@ section .site-overview h1 {
   height: 90px;
   width: 90px;
   position: absolute;
-  top: 60px;
+  top: 45px;
   right: 0;
   border: none;
   -webkit-border-radius: 100%;
@@ -1068,6 +1058,10 @@ section .site-overview h1 {
   right: 20px;
 }
 
+#comments {
+  padding: 50px 0 100px;
+}
+
 #comments h3 {
   text-align: center;
 }
@@ -1109,6 +1103,17 @@ section .site-overview h1 {
   border-top: solid 1px #ceb8b8;
 }
 
+.comment-respond label {
+  color: #ceb8b8;
+  display: block;
+  font-weight: bold;
+  padding: 0;
+  font-size: 100%;
+  line-height: inherit;
+  text-align: left;
+  cursor: default;
+}
+
 .comment-body p {
   color: #555;
 }
@@ -1143,36 +1148,23 @@ section .site-overview h1 {
   margin: 5px 0 0;
 }
 
-.submit {
-  margin-top: 6px;
-  background-color: #fff;
-  color: #b6b2b3 !important;
-  border: 1px solid #b6b2b3;
-  width: 150px;
-  float: right;
-}
-
-.submit:hover {
-  background-color: #fbfbfb;
-  color: #fff !important;
-}
-
-.f-submit {
-  margin-top: 5px;
-  margin-right: 2%;
-  background-color: #fff;
-  color: #333;
-  border: 1px solid #D1D1D1;
-  width: 150px;
-  float: right;
-}
-
-.f-submit:hover {
-  background-color: #fbfbfb;
-  color: #666;
-}
 
 /* === FORMS === */
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+.input,
+textarea,
+.textarea,
+select,
+button {
+  transition: background-color 0.3s ease-in, border 0.3s ease-in, color 0.3s ease-in;
+}
 
 input[type="email"]:focus,
 input[type="number"]:focus,
@@ -1181,12 +1173,34 @@ input[type="text"]:focus,
 input[type="tel"]:focus,
 input[type="url"]:focus,
 input[type="password"]:focus,
+.input:focus,
 textarea:focus,
-select:focus {
-  background-color: #fdfdfd;
-  border: 1px solid #555;
-  color: #555;
-  outline: 0; }
+.textarea:focus,
+select:focus,
+button:focus
+{
+  outline: 0;
+  background-color: #fbfbfb !important;
+  border: 1px solid #555 !important;
+  color: #555 !important;
+  outline: 0 !important; }
+
+label,
+.label {
+  color: #333;
+  display: block;
+  font-weight: bold;
+  padding: 0;
+  font-size: 100%;
+  line-height: inherit;
+  text-align: left;
+  cursor: default;
+}
+
+label:not(:last-child),
+.label:not(:last-child) {
+  margin-bottom: 5px;
+}
 
 .comment-form {
   width: 100%;
@@ -1195,35 +1209,14 @@ select:focus {
 }
 
 .comment-form-comment textarea {
-  width: 400px;
+  width: 100%;
   height: 120px;
 }
 
 .comment-form input.submit {
-  width: 200px;
-  margin-top: -20px;
-  float: left;
+float: left;
 }
 
-.comment-form input.submit:hover,
-.comment-form input.submit:focus {
-  color: #555 !important;
-}
-
-.f-half-width {
-  width: 48%;
-  float: left;
-  margin: 6px 0 6px 0;
-  padding-right: 2%;
-  box-sizing: border-box; }
-
-.f-full-width {
-  width: 98%;
-  float: left;
-  margin: 6px 0 6px 0;
-  padding-right: 2%;
-  box-sizing: border-box;
-}
 
 /* === Wookmark Plugin Styles === */
 
@@ -1242,11 +1235,7 @@ select:focus {
 /**
 * Grid container
 */
-#gallery-container {
-  position: relative;
-  width: 80%;
-  margin: 0 10% 100px 10%;
-}
+
 
 .tiles-wrap {
   position: relative; /** Needed to ensure items are laid out relative to this container **/
