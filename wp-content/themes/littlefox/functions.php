@@ -195,9 +195,9 @@ add_filter('excerpt_more', 'new_excerpt_more');
  * @return bool             True if metabox should show
  */
 
-
-$options = get_post_meta(5, 'options', true );
-if(is_array($options) && in_array('portfolio', $options) ) {
+$frontpage_id = get_option( 'page_on_front' );
+$options = get_post_meta($frontpage_id, 'options', true );
+if((is_array($options) && in_array('portfolio', $options)) || (is_string($options) && $options == 'portfolio') ) {
   
   /*
  * Define the metabox and field configurations.

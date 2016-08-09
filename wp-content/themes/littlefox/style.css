@@ -362,8 +362,9 @@ object {
 
 
 ::selection {
-  color: #555;
-  background-color: #ceb8b8;
+  color: #fff;
+  background-color: #555;
+  text-decoration: underline;
 }
 
 /* Change Autocomplete styles in Chrome*/
@@ -798,7 +799,7 @@ img.full-width {
 
 footer {
   background-color: #fbfbfb;
-  padding-top: 50px;
+  padding-top: 40px;
   border-top: 1px solid #999;
 }
 
@@ -811,7 +812,6 @@ footer h5 {
 footer p {
   padding: 2px;
   font-size: 13px;
-  color: #ceb8b8;
 }
 
 .news {
@@ -951,7 +951,7 @@ section .site-overview h1 {
 #full-post, .post, .widget, #comments {
   position: relative;
   border: none;
-  margin: 0 0 40px;
+  margin: 0 1px 40px;
 }
 
 .post a {
@@ -1019,7 +1019,7 @@ section .site-overview h1 {
 #content img {
   width: 100%;
   height: auto;
-  margin: 1px 0;
+  margin: 6px;
 }
 
 /* === BLOG POST COMMENTS === */
@@ -1172,6 +1172,76 @@ section .site-overview h1 {
   margin: 5px 0 0;
 }
 
+
+/* === PORTFOLIO PAGE === */
+
+#portfolio-title {
+  margin-top: -40px;
+  margin-bottom: 80px;
+}
+
+.portfolio-post-image {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+}
+.portfolio-post-image .overlay {
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  top: auto;
+  bottom: 0;
+  padding: 0;
+  height: 10em;
+  line-height: 10em;
+  background: transparent;
+  -webkit-transition: -webkit-transform .8s;
+  transition: transform .8s;
+  
+}
+
+.portfolio-post-image img {
+  display: block;
+  position: relative;
+  -webkit-transition: -webkit-transform .6s;
+  transition: transform .6s;
+  /* -webkit-transform: translate3d(0,10px,0);
+  transform: translate3d(0,10px,0); */
+}
+
+.portfolio-post-image:hover img {
+  /* -webkit-transform: translate3d(0,0,0);  
+  transform: translate3d(0,0,0); */
+  -webkit-transform: scale(1.03);
+  transform: scale(1.03);
+}
+ 
+.portfolio-post-image a.info {
+  display: inline-block;
+  text-decoration: none;
+  text-transform: none;
+  color: #fff;
+  font-size: 2em;
+  margin: 0;
+  opacity: 1;
+  background-color: transparent;
+  -webkit-transition: -webkit-transform .6s;
+  transition: transform .6s;
+}
+
+
+.portfolio-post-image:hover .overlay,
+.portfolio-post-image:hover h2,
+.portfolio-post-image:hover p.icon-links a,
+.portfolio-post-image:hover a.info {
+  -webkit-transform: scale(1.03);
+  transform: scale(1.03);
+}
 
 /* === FORMS === */
 
@@ -1341,6 +1411,14 @@ label:not(:last-child),
   
   ul.nav.navbar-nav.navbar-list {
     margin: 0 -15px !important;
+  }
+  
+  .navbar-toggle:focus {
+    border: none !important;
+  }
+  
+  .navbar-nav {
+    float: none;
   }
 
   .navbar-list li {

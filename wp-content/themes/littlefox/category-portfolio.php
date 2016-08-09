@@ -6,23 +6,20 @@
 get_header(); ?>
 
 
-<div class="overview">
-  <h1><?php single_cat_title(); ?></h1>
-</div>
-
-
-
 <!-- BLOG CONTENT 
 ===================================================== -->
-<div class="container">
-  <div class="row" id="primary">
-    <main id="content" class="col-lg-12">
+<div class="container" id="primary">
+  <h1 class="has-text-centered title is-1" id="portfolio-title"><?php single_cat_title(); ?></h1>
+  <main id="content" class="columns is-multiline is-gapless">
 
-      <?php
+
+     <?php
       if ( have_posts() ) :
 
       //if ( is_home() && !is_front_page() ) : ?>
+    
       <header>
+        
         <h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
       </header>
 
@@ -33,10 +30,10 @@ get_header(); ?>
       while ( have_posts() ) : the_post();
 
       /*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
+               * Include the Post-Format-specific template for the content.
+               * If you want to override this in a child theme, then include a file
+               * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+               */
       get_template_part( 'template-parts/content', 'portfolio-post' );
 
       endwhile;
@@ -49,9 +46,10 @@ get_header(); ?>
 
       //endif; ?>
 
-    </main><!-- #content -->
+      </div>
 
-  </div><!-- #primary .row -->
+  </main><!-- #content -->
+
 </div><!-- .container -->
 
 
