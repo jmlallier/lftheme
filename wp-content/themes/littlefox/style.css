@@ -824,18 +824,24 @@ h5 {
   margin-bottom: 30px;
 }
 
-.news input[type="text"] {
+label input.search-field,
+input[type="search"].search-field {
   background-color: #fbfbfb;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  -o-border-radius: 0;
-  border-radius: 0;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  -ms-border-radius: 0 !important;
+  -o-border-radius: 0 !important;
+  border-radius: 0 !important;
   font-size: 15px;
   width: 100% !important;
+  display: inline-flex;
+  margin: 0;
+  margin-right: -1px;
 }
 
-.news button {
+.search-form input.search-submit {
+  display: inline-flex;
+  margin: 0;
   font-size: 15px;
   color: #ceb8b8;
   -webkit-border-radius: 0;
@@ -844,11 +850,11 @@ h5 {
   -o-border-radius: 0;
   border-radius: 0;
   background-color: #fbfbfb;
-  border: 1px solid #ceb8b8;
+  border: 1px solid #999;
   transition: color 0.5s ease-in, border 0.5s ease-in;
 }
 
-.news button:hover {
+.search-form input.search-submit:hover {
   border: 1px solid #333;
   color: #333;
 }
@@ -1252,6 +1258,7 @@ input[type="text"],
 input[type="tel"],
 input[type="url"],
 input[type="password"],
+input.search-field,
 .input,
 textarea,
 .textarea,
@@ -1267,6 +1274,7 @@ input[type="text"]:focus,
 input[type="tel"]:focus,
 input[type="url"]:focus,
 input[type="password"]:focus,
+input.search-field:focus,
 .input:focus,
 textarea:focus,
 .textarea:focus,

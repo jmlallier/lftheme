@@ -64,17 +64,17 @@ function littlefox_setup() {
 	 * See https://developer.wordpress.org/themes/functionality/post-formats/
 	 */
 	add_theme_support( 'post-formats', array(
-		'aside',
+		//'aside',
 		'image',
-		'video',
-		'quote',
-		'link',
+		'video'//,
+		//'quote',
+		//'link',
 	) );
 
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'littlefox_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
+		'default-color' => 'ffffff'//,
+		//'default-image' => '',
 	) ) );
 }
 endif;
@@ -99,13 +99,13 @@ add_action( 'after_setup_theme', 'littlefox_content_width', 0 );
  */
 function littlefox_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'littlefox' ),
-		'id'            => 'sidebar-1',
+		'name'          => esc_html__( 'Footer', 'littlefox' ),
+		'id'            => 'footer-widgets',
 		'description'   => '',
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
+		'before_widget' => '<div class="column">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h5 class="footer-widget-title">',
+		'after_title'   => '</h5>',
 	) );
 }
 add_action( 'widgets_init', 'littlefox_widgets_init' );

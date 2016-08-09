@@ -8,15 +8,19 @@
  *
  * @package Little_Fox
  */
+$frontpage_id = get_option( 'page_on_front' );
+$options = get_post_meta($frontpage_id, 'options', true );
 
 ?>
 
 <!-- FOOTER 
 ===================================================== -->
+<?php if((is_array($options) && in_array('footer', $options)) || (is_string($options) && $options == 'footer') ) { ?>
 <footer>
   <div class="container">
-    <div class="columns has-text-centered">
-      <div class="column is-one-third">
+    <div class="columns">
+      <?php dynamic_sidebar( 'footer-widgets' ); ?>
+      <!-- <div class="column is-one-third">
         <div class="footer-about">
           <h5>About Us</h5>
           <p>
@@ -31,11 +35,11 @@
             <input type="text" class="input">
             <button class="button">></button>
           </p>
-           <!-- <form>
+           <form>
             <label for=""></label>
             <input type="search" placeholder="Your email address">
             <button type="submit">></button>
-          </form> -->
+          </form>
         </div>
         <div class="social">
           <h5>Get Social</h5>
@@ -59,11 +63,11 @@
             <li><a href="#">Another Post</a></li>
           </ul>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </footer>
-	
+<?php } ?>	
 
 </div><!-- #page -->
 

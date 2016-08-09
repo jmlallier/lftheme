@@ -7,11 +7,17 @@ $(document).ready(function() {
       $body = $('body'),
       navOffsetTop = $nav.offset().top - 32,
       $document = $(document),
-      $topButton = $('.topButton');
+      $topButton = $('.topButton'),
+      $searchButton = $('.search-submit');
 
   // If user is not admin, hide logged-in bar
   if(!$body.hasClass('admin-bar')) {
     $body.removeClass('logged-in');
+  }
+  
+  // Remove "Search" text from search button
+  if(('input').hasClass($searchButton)) {
+    $this.value = "<i class='fa fa-search'></i>";
   }
 
   // Parallax Srolling
