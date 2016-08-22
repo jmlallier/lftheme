@@ -7,8 +7,8 @@ Description: An elegant WordPress theme for photographers
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: littlefox
-Tags:
+Text Domain: little-fox
+Tags: portfolio, photography
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -381,10 +381,12 @@ select:-webkit-autofill:focus {
   border: 1px solid #999;
   -webkit-text-fill-color: #333;
   -webkit-box-shadow: 0 0 0px 1000px #fbfbfb inset;
-  transition: background-color .5s ease-in;
+  transition: background-color 00.6s ease-in;
 }
 
 /* === TYPOGRAPHY === */
+
+
 
 a {
   color: #ceb8b8;
@@ -583,6 +585,7 @@ ul.navigation li a:hover {
   text-align: center;
   position: relative;
   margin-bottom: 0;
+  transition: all 00.6s ease;
 }
 
 .navbar-list li:hover,
@@ -600,10 +603,9 @@ ul.navigation li a:hover {
   font-size: 1.5rem;
   font-weight: bold;
   letter-spacing: 1px;
-  margin: 0 auto;
   text-decoration: none;
-  /* line-height: 6.5rem; */
   color: #ceb8b8;
+  transition: all 00.6s ease;
 }
 
 .navbar-list li a:hover {
@@ -754,7 +756,7 @@ img.full-width {
 #blog .headline-box h3 {
   display: inline-block;
   vertical-align: middle;
-  transition: font-size .6s ease;
+  transition: font-size 0.6s ease;
   color: #fff;
   border: 2px solid #fff;
   margin: 0;
@@ -778,20 +780,21 @@ img.full-width {
   color: #333;
 }
 
+input.submit,
 .submit {
-  margin-top: 10px;
+  width: 100%;
+  margin-top: 0;
   background-color: #fff !important;
   color: #999;
-  border: 1px solid transparent;
-  width: 100%;
+  border: 2px solid transparent;
   float: left;
-  transition: border .3s ease-in, color .3s ease-in;
+  transition: border 00.6s ease-in, color 00.6s ease-in;
 }
 
 .submit:hover, 
 .submit:focus {
   background-color: #fbfbfb;
-  border: 1px solid #111;
+  border: 2px solid #111;
   color: #333;
 }
 
@@ -799,7 +802,7 @@ img.full-width {
 
 footer {
   background-color: #fbfbfb;
-  padding-top: 40px;
+  padding: 40px 0;
   border-top: 1px solid #999;
 }
 
@@ -807,17 +810,16 @@ footer h5 {
   font-size: 18px;
   text-transform: uppercase;
   font-weight: bold;
-}
-
-footer p {
-  padding: 2px;
-  font-size: 13px;
-}
-
-.news {
   text-align: center;
-  box-sizing: border-box;
-  height: 120px;
+}
+
+footer .textwidget {
+  font-size: 13px;
+  text-align: justify;
+}
+
+form.search-form {
+  padding: 6px 0 0;
 }
 
 h5 {
@@ -827,35 +829,37 @@ h5 {
 label input.search-field,
 input[type="search"].search-field {
   background-color: #fbfbfb;
-  -webkit-border-radius: 0 !important;
-  -moz-border-radius: 0 !important;
-  -ms-border-radius: 0 !important;
-  -o-border-radius: 0 !important;
-  border-radius: 0 !important;
   font-size: 15px;
+  color: #333;
   width: 100% !important;
-  display: inline-flex;
+  display: inline-block;
   margin: 0;
-  margin-right: -1px;
+}
+
+label input.search-field:focus,
+input[type="search"].search-field:focus {
+  background-color: #fff;
+}
+
+footer label {
+  margin: 0;
+  padding: 0;
 }
 
 .search-form input.search-submit {
-  display: inline-flex;
+  display: inline-block;
   margin: 0;
+  width: 100%;
   font-size: 15px;
-  color: #ceb8b8;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  -o-border-radius: 0;
-  border-radius: 0;
+  color: #999;
   background-color: #fbfbfb;
   border: 1px solid #999;
-  transition: color 0.5s ease-in, border 0.5s ease-in;
+  transition: color 00.6s ease-in, border 00.6s ease-in;
 }
 
 .search-form input.search-submit:hover {
   border: 1px solid #333;
+  background-color: #fff;
   color: #333;
 }
 
@@ -893,7 +897,7 @@ input[type="search"].search-field {
   padding: 0;
   margin: 0;
   color: #ceb8b8;
-  transition: color 0.5s ease-in;
+  transition: color 00.6s ease-in;
 }
 
 .social ul li a:hover,
@@ -901,17 +905,18 @@ input[type="search"].search-field {
   color: #333;
 }
 
-.latest-posts ul li {
+footer ul li {
   list-style: none;
   text-transform: uppercase;
   text-align: center;
+  font-size: 15px;
 }
 
-.latest-posts ul li a {
-  transition: color 0.3s ease-in;
+footer ul li a {
+  transition: color 00.6s ease-in;
 }
 
-.latest-posts ul li a:hover {
+footer ul li a:hover {
   color: #333;
 }
 
@@ -1206,16 +1211,16 @@ section .site-overview h1 {
   height: 10em;
   line-height: 10em;
   background: transparent;
-  -webkit-transition: -webkit-transform .8s;
-  transition: transform .8s;
+  -webkit-transition: -webkit-transform 00.6s;
+  transition: transform 00.6s;
   
 }
 
 .portfolio-post-image img {
   display: block;
   position: relative;
-  -webkit-transition: -webkit-transform .6s;
-  transition: transform .6s;
+  -webkit-transition: -webkit-transform 0.6s;
+  transition: transform 0.6s;
   /* -webkit-transform: translate3d(0,10px,0);
   transform: translate3d(0,10px,0); */
 }
@@ -1236,8 +1241,8 @@ section .site-overview h1 {
   margin: 0;
   opacity: 1;
   background-color: transparent;
-  -webkit-transition: -webkit-transform .6s;
-  transition: transform .6s;
+  -webkit-transition: -webkit-transform 0.6s;
+  transition: transform 0.6s;
 }
 
 
@@ -1251,7 +1256,13 @@ section .site-overview h1 {
 
 /* === FORMS === */
 
+form {
+  width: 80%;
+  margin-left: 10%;
+}
+
 input[type="email"],
+input[type="submit"],
 input[type="number"],
 input[type="search"],
 input[type="text"],
@@ -1263,11 +1274,21 @@ input.search-field,
 textarea,
 .textarea,
 select,
-button {
-  transition: background-color 0.3s ease-in, border 0.3s ease-in, color 0.3s ease-in;
+button,
+.button,
+.submit{
+  font-size: 18px;
+  height: 48px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  transition: background-color 00.6s ease-in, border 00.6s ease-in, color 00.6s ease-in;
 }
 
 input[type="email"]:focus,
+input[type="submit"]:focus,
 input[type="number"]:focus,
 input[type="search"]:focus,
 input[type="text"]:focus,
@@ -1279,10 +1300,12 @@ input.search-field:focus,
 textarea:focus,
 .textarea:focus,
 select:focus,
-button:focus
+button:focus,
+.button:focus,
+.submit:focus
 {
   outline: 0;
-  background-color: #fbfbfb !important;
+  background-color: #fff !important;
   border: 1px solid #555 !important;
   color: #555 !important;
   outline: 0 !important; }
@@ -1365,10 +1388,10 @@ label:not(:last-child),
   border-radius: 0;
 }
 .tiles-wrap.animated li {
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
+  -webkit-transition: all 00.6s ease-out;
+  -moz-transition: all 00.6s ease-out;
+  -o-transition: all 00.6s ease-out;
+  transition: all 00.6s ease-out;
 }
 
 .tiles-wrap li.wookmark-inactive {
@@ -1435,6 +1458,15 @@ label:not(:last-child),
     padding-bottom: .6rem;
     display: block;
   }
+  
+  form.search-form {
+    padding: 10% 0;
+  }
+  
+  .column {
+    margin-left: 0;
+  }
+  
 }
 
 @media screen and ( max-width: 600px ) {

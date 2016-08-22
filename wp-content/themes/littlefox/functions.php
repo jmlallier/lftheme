@@ -6,7 +6,6 @@
  *
  * @package Little_Fox
  */
-
 if ( ! function_exists( 'littlefox_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -187,17 +186,9 @@ add_filter('excerpt_more', 'new_excerpt_more');
 
 // METABOXES
 
-/**
- * Conditionally displays a metabox when used as a callback in the 'show_on_cb' cmb2_box parameter
- *
- * @param  CMB2 object $cmb CMB2 object
- *
- * @return bool             True if metabox should show
- */
-
 $frontpage_id = get_option( 'page_on_front' );
 $options = get_post_meta($frontpage_id, 'options', true );
-if((is_array($options) && in_array('portfolio', $options)) || (is_string($options) && $options == 'portfolio') ) {
+if( is_front_page() && ((is_array($options) && in_array('portfolio', $options)) || (is_string($options) && $options == 'portfolio')) ) {
   
   /*
  * Define the metabox and field configurations.
@@ -243,10 +234,5 @@ function lf_register_main_page_portfolio_metabox() {
     'type'         => 'file_list',
     'preview_size' => array( 150, 150 ), // Default: array( 50, 50 )
   ) );
-  
-  
-}
-
- 
-  
+  }
 }

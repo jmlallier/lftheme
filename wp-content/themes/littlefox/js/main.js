@@ -14,11 +14,6 @@ $(document).ready(function() {
   if(!$body.hasClass('admin-bar')) {
     $body.removeClass('logged-in');
   }
-  
-  // Remove "Search" text from search button
-  if(('input').hasClass($searchButton)) {
-    $this.value = "<i class='fa fa-search'></i>";
-  }
 
   // Parallax Srolling
   $('section[data-type="background"]').each(function(){

@@ -1,5 +1,6 @@
 <?php
-$main_title = get_post_meta( 5, 'main_title', true );
+$frontpage_id = get_option( 'page_on_front' );
+$main_title = get_post_meta( $frontpage_id, 'main_title', true );
 $cover_image = get_field( 'cover_image' );
 $cover_image_url = $cover_image['url'];
 $main_headline_choice = get_field( 'main_headline_choice' );

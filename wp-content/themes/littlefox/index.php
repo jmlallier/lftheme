@@ -11,7 +11,6 @@
  *
  * @package Little_Fox
  */
-
 get_header(); ?>
 
 <div class="overview">
