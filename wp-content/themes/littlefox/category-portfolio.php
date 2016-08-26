@@ -8,8 +8,17 @@ get_header(); ?>
 
 <!-- BLOG CONTENT 
 ===================================================== -->
-<div class="container" id="primary">
-  <h1 class="has-text-centered title is-1" id="portfolio-title"><?php single_cat_title(); ?></h1>
+<section id="main" data-type="background" data-speed="10" style="background: url('<?php header_image(); ?>') center center no-repeat fixed; background-size: cover;">
+  <div class="container">
+    <div class="header">
+      <div class="headline-box">
+        <h3><?php single_cat_title(); ?></h3>
+      </div><!-- .headline-box -->
+    </div><!-- .header -->
+  </div>
+</section>
+<div class="container" id="category-portfolio-container">
+  <!-- <h1 class="has-text-centered title is-1" id="portfolio-title"><?php //single_cat_title(); ?></h1> -->
   <main id="content" class="columns is-multiline is-gapless">
 
 

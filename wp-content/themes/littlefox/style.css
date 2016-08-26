@@ -1,14 +1,14 @@
 /*
 Theme Name: Little Fox
-Theme URI: http://underscores.me/
+Theme URI: http://github.com/jmlallier/littlefox/
 Author: John-Michael L'Allier
-Author URI: http://underscores.me/
+Author URI: http://github.com/jmlallier/
 Description: An elegant WordPress theme for photographers
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: little-fox
-Tags: portfolio, photography
+Tags: portfolio, photography, custom-background, custom-colors, footer-widgets, full-width-template, theme-options, threaded-comments, blog, custom-logo, custom-header, custom-menu, one-column
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -361,6 +361,13 @@ object {
 /* === GLOBAL === */
 
 
+::-moz-selection {
+  color: #fff;
+  background-color: #555;
+  text-decoration: underline;
+}
+
+
 ::selection {
   color: #fff;
   background-color: #555;
@@ -381,6 +388,7 @@ select:-webkit-autofill:focus {
   border: 1px solid #999;
   -webkit-text-fill-color: #333;
   -webkit-box-shadow: 0 0 0px 1000px #fbfbfb inset;
+  -webkit-transition: background-color 00.6s ease-in;
   transition: background-color 00.6s ease-in;
 }
 
@@ -547,6 +555,7 @@ ul.navigation li a:hover {
 .navbar {
   border: none;
   border-bottom: 1px solid transparent;
+  margin-bottom: 0;
 }
 
 .navbar .container {
@@ -585,6 +594,7 @@ ul.navigation li a:hover {
   text-align: center;
   position: relative;
   margin-bottom: 0;
+  -webkit-transition: all 00.6s ease;
   transition: all 00.6s ease;
 }
 
@@ -605,6 +615,7 @@ ul.navigation li a:hover {
   letter-spacing: 1px;
   text-decoration: none;
   color: #ceb8b8;
+  -webkit-transition: all 00.6s ease;
   transition: all 00.6s ease;
 }
 
@@ -634,6 +645,7 @@ ul.navigation li a:hover {
   left: 0;
   z-index: 100;
   border: none;
+  margin-bottom: 0;
 }
 
 .has-docked-nav-logged-out .navbar {
@@ -642,6 +654,7 @@ ul.navigation li a:hover {
   left: 0;
   z-index: 100;
   border: none;
+  margin-bottom: 0;
 }
 
 .has-docked-nav .navbar-spacer {
@@ -658,10 +671,6 @@ ul.navigation li a:hover {
   width: 40px;
   line-height: 40px;
   display: block;
-  -webkit-border-radius: 100%;
-  -moz-border-radius: 100%;
-  -ms-border-radius: 100%;
-  -o-border-radius: 100%;
   border-radius: 100%;
   border: 1px solid #999;
   background-color: #fff;
@@ -683,10 +692,6 @@ ul.navigation li a:hover {
 
 .topButton:hover,
 .topButton:focus {
-  -webkit-border-radius: 100%;
-  -moz-border-radius: 100%;
-  -ms-border-radius: 100%;
-  -o-border-radius: 100%;
   border-radius: 100%;
   border: 1px solid #b6b2b3;
   color: #b6b2b3;
@@ -756,6 +761,7 @@ img.full-width {
 #blog .headline-box h3 {
   display: inline-block;
   vertical-align: middle;
+  -webkit-transition: font-size 0.6s ease;
   transition: font-size 0.6s ease;
   color: #fff;
   border: 2px solid #fff;
@@ -788,6 +794,7 @@ input.submit,
   color: #999;
   border: 2px solid transparent;
   float: left;
+  -webkit-transition: border 00.6s ease-in, color 00.6s ease-in;
   transition: border 00.6s ease-in, color 00.6s ease-in;
 }
 
@@ -854,6 +861,7 @@ footer label {
   color: #999;
   background-color: #fbfbfb;
   border: 1px solid #999;
+  -webkit-transition: color 00.6s ease-in, border 00.6s ease-in;
   transition: color 00.6s ease-in, border 00.6s ease-in;
 }
 
@@ -897,6 +905,7 @@ footer label {
   padding: 0;
   margin: 0;
   color: #ceb8b8;
+  -webkit-transition: color 00.6s ease-in;
   transition: color 00.6s ease-in;
 }
 
@@ -913,6 +922,7 @@ footer ul li {
 }
 
 footer ul li a {
+  -webkit-transition: color 00.6s ease-in;
   transition: color 00.6s ease-in;
 }
 
@@ -1042,10 +1052,6 @@ section .site-overview h1 {
   top: 45px;
   right: 0;
   border: none;
-  -webkit-border-radius: 100%;
-  -moz-border-radius: 100%;
-  -ms-border-radius: 100%;
-  -o-border-radius: 100%;
   border-radius: 100%;
   background: #ceb8b8;
   text-align: center;
@@ -1172,10 +1178,6 @@ section .site-overview h1 {
 
 .comment-author img {
   width: 32px !important;
-  -webkit-border-radius: 100%;
-  -moz-border-radius: 100%;
-  -ms-border-radius: 100%;
-  -o-border-radius: 100%;
   border-radius: 100%;
 }
 
@@ -1186,9 +1188,12 @@ section .site-overview h1 {
 
 /* === PORTFOLIO PAGE === */
 
-#portfolio-title {
-  margin-top: -40px;
-  margin-bottom: 80px;
+#category-portfolio-container {
+  padding-top: 100px;
+}
+
+.category-portfolio-title {
+  
 }
 
 .portfolio-post-image {
@@ -1200,7 +1205,7 @@ section .site-overview h1 {
   text-align: center;
   cursor: default;
 }
-.portfolio-post-image .overlay {
+/* .portfolio-post-image .overlay {
   width: 100%;
   position: absolute;
   overflow: hidden;
@@ -1212,47 +1217,38 @@ section .site-overview h1 {
   line-height: 10em;
   background: transparent;
   -webkit-transition: -webkit-transform 00.6s;
+  transition: -webkit-transform 00.6s;
   transition: transform 00.6s;
+  transition: transform 00.6s, -webkit-transform 00.6s;
   
-}
+} */
 
 .portfolio-post-image img {
   display: block;
   position: relative;
-  -webkit-transition: -webkit-transform 0.6s;
+  /* -webkit-transition: -webkit-transform 0.6s;
+  transition: -webkit-transform 0.6s;
   transition: transform 0.6s;
-  /* -webkit-transform: translate3d(0,10px,0);
+  transition: transform 0.6s, -webkit-transform 0.6s; -webkit-transform: translate3d(0,10px,0);
   transform: translate3d(0,10px,0); */
 }
 
 .portfolio-post-image:hover img {
-  /* -webkit-transform: translate3d(0,0,0);  
-  transform: translate3d(0,0,0); */
+  /* 
+  -webkit-transform: translate3d(0,0,0);  
+  transform: translate3d(0,0,0); 
   -webkit-transform: scale(1.03);
   transform: scale(1.03);
-}
- 
-.portfolio-post-image a.info {
-  display: inline-block;
-  text-decoration: none;
-  text-transform: none;
-  color: #fff;
-  font-size: 2em;
-  margin: 0;
-  opacity: 1;
-  background-color: transparent;
-  -webkit-transition: -webkit-transform 0.6s;
-  transition: transform 0.6s;
+  */
 }
 
-
-.portfolio-post-image:hover .overlay,
+/* .portfolio-post-image:hover .overlay,
 .portfolio-post-image:hover h2,
 .portfolio-post-image:hover p.icon-links a,
 .portfolio-post-image:hover a.info {
   -webkit-transform: scale(1.03);
   transform: scale(1.03);
-}
+} */
 
 /* === FORMS === */
 
@@ -1279,11 +1275,8 @@ button,
 .submit{
   font-size: 18px;
   height: 48px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
   border-radius: 3px;
+  -webkit-transition: background-color 00.6s ease-in, border 00.6s ease-in, color 00.6s ease-in;
   transition: background-color 00.6s ease-in, border 00.6s ease-in, color 00.6s ease-in;
 }
 
@@ -1345,8 +1338,6 @@ label:not(:last-child),
 * Placerholder css
 */
 .wookmark-placeholder {
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
   border-radius: 2px;
   background-color: #eee;
   border: 1px solid #dedede;
@@ -1381,16 +1372,10 @@ label:not(:last-child),
   width: 200px;
   padding: 0;
   border: none;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  -o-border-radius: 0;
   border-radius: 0;
 }
 .tiles-wrap.animated li {
   -webkit-transition: all 00.6s ease-out;
-  -moz-transition: all 00.6s ease-out;
-  -o-transition: all 00.6s ease-out;
   transition: all 00.6s ease-out;
 }
 

@@ -20,11 +20,11 @@
     <?php echo '<a href="' . get_permalink($post->ID) . '" >';
       the_post_thumbnail();
       echo '</a>'; ?>
-    <div class="overlay">
-      <?php the_title( '<a href="' . esc_url( get_permalink() ) . '" class="info" rel="bookmark">', '</a>' ); ?>
-    </div>
     
   </div><!-- .post-image -->
+  <div class="category-portfolio-title">
+    <?php the_title( '<a href="' . esc_url( get_permalink() ) . '" class="info" rel="bookmark">', '</a>' ); ?>
+  </div>
   <?php } ?>
 </article><!-- #post-## -->
 </div>

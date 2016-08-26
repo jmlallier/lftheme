@@ -57,24 +57,58 @@ function littlefox_setup() {
 		'gallery',
 		'caption',
 	) );
+  
+  /**
+ * Register default header
+ */
+
+  register_default_headers( array(
+    'wheel' => array(
+      'url'           => '%s/assets/img/winter-fox-sm.jpg',
+      'thumbnail_url' => '%s/assets/img/winter-fox-sm.jpg',
+      'description'   => __( 'Fox', 'littlefox' )
+    )
+  ) );
+
+  // Enable custom header for main section on front page
+  $defaults = array(
+    'default-image'          => get_template_directory_uri() . '/assets/img/winter-fox-sm.jpg',
+    //'width'                  => 0,
+    //'height'                 => 0,
+    //'flex-height'            => false,
+    //'flex-width'             => false,
+    'uploads'                => true,
+    'random-default'         => false,
+    'header-text'            => true,
+    //'default-text-color'     => '',
+    //'wp-head-callback'       => '',
+    //'admin-head-callback'    => '',
+    //'admin-preview-callback' => '',
+  );
+  add_theme_support( 'custom-header', $defaults );
+
+  // Enable custom logo
+  add_theme_support( 'custom-logo', array(
+    'height'      => 100,
+    'width'       => 400,
+    'flex-height' => true,
+    'flex-width'  => true,
+    'header-text' => array( 'site-title', 'site-description' ),
+  ) );
+  
 
 	/*
 	 * Enable support for Post Formats.
 	 * See https://developer.wordpress.org/themes/functionality/post-formats/
 	 */
-	add_theme_support( 'post-formats', array(
+	//add_theme_support( 'post-formats', array(
 		//'aside',
-		'image',
-		'video'//,
+		//'image',
+		//'video'//,
 		//'quote',
 		//'link',
-	) );
+	//) );
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'littlefox_custom_background_args', array(
-		'default-color' => 'ffffff'//,
-		//'default-image' => '',
-	) ) );
 }
 endif;
 add_action( 'after_setup_theme', 'littlefox_setup' );
@@ -106,6 +140,8 @@ function littlefox_widgets_init() {
 		'before_title'  => '<h5 class="footer-widget-title">',
 		'after_title'   => '</h5>',
 	) );
+  
+  
 }
 add_action( 'widgets_init', 'littlefox_widgets_init' );
 
@@ -154,6 +190,8 @@ add_action( 'wp_enqueue_scripts', 'littlefox_scripts' );
  */
 require get_template_directory() . '/inc/custom-header.php';
 
+
+
 /**
  * Custom template tags for this theme.
  */
@@ -187,8 +225,8 @@ add_filter('excerpt_more', 'new_excerpt_more');
 // METABOXES
 
 $frontpage_id = get_option( 'page_on_front' );
-$options = get_post_meta($frontpage_id, 'options', true );
-if( is_front_page() && ((is_array($options) && in_array('portfolio', $options)) || (is_string($options) && $options == 'portfolio')) ) {
+$options = get_post_meta( $frontpage_id, 'options', true );
+if( (is_array( $options ) && in_array( 'portfolio', $options ) ) || ( is_string( $options ) && $options == 'portfolio' ) ) {
   
   /*
  * Define the metabox and field configurations.
@@ -199,7 +237,7 @@ if( is_front_page() && ((is_array($options) && in_array('portfolio', $options)) 
  */
 function lf_register_main_page_portfolio_metabox() {
   $prefix = 'lf_';
-  
+  $frontpage_id = get_option( 'page_on_front' );
   /**
 	 * Sample metabox to demonstrate each field type included
 	 */
@@ -207,7 +245,7 @@ function lf_register_main_page_portfolio_metabox() {
     'id'            => $prefix . 'metabox',
     'title'         => __( 'Main Page Portfolio Images', 'cmb2' ),
     'object_types'  => array( 'page', ), // Post type
-    'show_on_cb' => $prefix . 'show_if_front_page', // function should return a bool value
+    'show_on'      => array( 'key' => 'id', 'value' => $frontpage_id ), // function should return a bool value
     'context'      => 'normal',
     'priority'     => 'high',
     // 'show_names' => true, // Show field names on the left
@@ -234,5 +272,6 @@ function lf_register_main_page_portfolio_metabox() {
     'type'         => 'file_list',
     'preview_size' => array( 150, 150 ), // Default: array( 50, 50 )
   ) );
+  
   }
 }

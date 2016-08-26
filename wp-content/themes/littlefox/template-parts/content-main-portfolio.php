@@ -1,5 +1,6 @@
 <?php 
-$portfolio_title = get_post_meta( 5, 'lf_mp_portfolio_title', true );
+$frontpage_id = get_option( 'page_on_front' );
+$portfolio_title = get_post_meta( $frontpage_id, 'lf_mp_portfolio_title', true );
 /**
  * Sample template tag function for outputting a cmb2 file_list
  *
@@ -7,9 +8,9 @@ $portfolio_title = get_post_meta( 5, 'lf_mp_portfolio_title', true );
  * @param  string  $img_size           Size of image to show
  */
 function lf_output_mp_portfolio_images( $portfolio_images_key, $img_size = 'small' ) {
-
+  global $frontpage_id;
   // Get the list of images
-  $images = get_post_meta( 5, $portfolio_images_key, 1 );
+  $images = get_post_meta( $frontpage_id, $portfolio_images_key, 1 );
   
 
   // Loop through them and output an image

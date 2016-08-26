@@ -15,7 +15,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-<?php wp_title(); ?>
+  <title><?php wp_title('', true, ''); ?></title>
 <meta name="description" content="">
 <meta name="author" content="">
 <!-- Mobile Specific Metas
@@ -31,7 +31,7 @@
 <?php 
 if(!is_front_page()){
 get_template_part( 'template-parts/content', 'navbar' ); // Pull in Navbar ?>
-<div id="page" style="padding-top: 100px;" class="hfeed site"><a href="#content" class="skip-link screen-reader-text"><?php _e( 'Skip to content', 'littlefox' ); ?></a>
+<div id="page" class="hfeed site"><a href="#content" class="skip-link screen-reader-text"><?php _e( 'Skip to content', 'littlefox' ); ?></a>
 <?php 
 } else { ?>
 <div id="page" class="hfeed site"><a href="#content" class="skip-link screen-reader-text"><?php _e( 'Skip to content', 'littlefox' ); ?></a>
