@@ -30,6 +30,10 @@ if( ($blog_bg == 'yes' && $blog_choice == 'image') && !empty($blog_bg_image)):
       
     
       <div class="headline-box" id="blog-headline">
-        <a href="/blog"><h3><?php echo $blog_headline; ?></h3></a>
+        <?php 
+        if ( get_option( 'page_for_posts' ) ) {
+          echo '<a href="'.esc_url(get_permalink( get_option('page_for_posts' ) )) . '"><h3>' . $blog_headline . '</h3></a>';
+        } 
+        ?> 
       </div><!-- .headline-box -->
 </section><!-- #blog -->

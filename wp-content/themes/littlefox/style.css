@@ -416,11 +416,6 @@ section {
   padding-bottom: 100px;
 }
 
-.bg-overlay {
-  height: 100vh;
-  width: 100%;
-  background: rgba(0,0,0,0.2);
-}
 
 .header-title {
   text-align: center;
@@ -446,14 +441,22 @@ section {
   margin-bottom: 25px;
 }
 
-.headline-box {
+body.home.page section#main .header {
+  margin-top: 15%;
+}
+
+body.home.page section#main .header .headline-box {
+  margin-top: 0;
+}
+
+section .header .headline-box {
   text-align: center;
   width: 100%;
   color: #fff;
-  white-space: nowrap;
+  margin-top: 25%;
 }
 
-.headline-box:before {
+section .header .headline-box:before {
   content: '';
   display: inline-block;
   height: 100%;
@@ -471,6 +474,7 @@ section {
 }
 
 .headline-box h3 {
+  margin: 0;
   border: 2px solid #fff;
   color: #fff;
   display: inline-block;
@@ -734,7 +738,7 @@ img.full-width {
   height: auto;
 }
 
-/* === MAIN-BLOG === */
+/* === MAIN PAGE BLOG CALLOUT SECTION === */
 
 #blog {
   height: 100%;
@@ -742,6 +746,7 @@ img.full-width {
   background-color: #ffffff;
   padding: 0;
   margin: 0;
+  text-align: center;
 }
 
 #blog .headline-box:before {
@@ -1008,11 +1013,32 @@ section .site-overview h1 {
   font-size: 24px;
 }
 
+.post-image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  background: black;
+  padding: 0;
+}
+
 .post-image img {
+  display: block;
   height: auto;
   width: 100%;
   padding: 0;
-  margin: 0 0 20px !important;
+  margin: 0 !important;
+  -webkit-transition: all ease 0.6s;
+  transition: all ease 0.6s;
+}
+
+.post-image:hover img {
+  opacity: 0.8;
+}
+
+.post-excerpt {
+  margin-top: 20px;
 }
 
 .post-details {
@@ -1032,6 +1058,10 @@ section .site-overview h1 {
   padding: 0;
 }
 
+.container#primary {
+  padding-top: 100px;
+}
+
 #content {
   margin-bottom: 100px;
   position: relative;
@@ -1040,7 +1070,7 @@ section .site-overview h1 {
 #content img {
   width: 100%;
   height: auto;
-  margin: 6px;
+  margin-bottom: 1px;
 }
 
 /* === BLOG POST COMMENTS === */
@@ -1192,63 +1222,44 @@ section .site-overview h1 {
   padding-top: 100px;
 }
 
-.category-portfolio-title {
-  
+#category-portfolio-container article.post {
+  margin-bottom: 14px;
+  margin-right: 6px;
 }
 
-.portfolio-post-image {
+.category-portfolio-title.title {
+  color: #777;
+  margin-bottom: 6px;
+  -webkit-transition: all ease 0.6s;
+  transition: all ease 0.6s;
+}
+
+article.post:hover .category-portfolio-title {
+  color: #333;
+  border-bottom: 0;
+  text-decoration: none;
+}
+
+article.post .portfolio-post-image {
   width: 100%;
   height: 100%;
-  float: left;
   overflow: hidden;
   position: relative;
-  text-align: center;
-  cursor: default;
-}
-/* .portfolio-post-image .overlay {
-  width: 100%;
-  position: absolute;
-  overflow: hidden;
-  left: 0;
-  top: auto;
-  bottom: 0;
+  display: inline-block;
+  background: black;
   padding: 0;
-  height: 10em;
-  line-height: 10em;
-  background: transparent;
-  -webkit-transition: -webkit-transform 00.6s;
-  transition: -webkit-transform 00.6s;
-  transition: transform 00.6s;
-  transition: transform 00.6s, -webkit-transform 00.6s;
-  
-} */
+}
 
-.portfolio-post-image img {
+article.post .portfolio-post-image img {
   display: block;
-  position: relative;
-  /* -webkit-transition: -webkit-transform 0.6s;
-  transition: -webkit-transform 0.6s;
-  transition: transform 0.6s;
-  transition: transform 0.6s, -webkit-transform 0.6s; -webkit-transform: translate3d(0,10px,0);
-  transform: translate3d(0,10px,0); */
+  -webkit-transition: all ease 0.6s;
+  transition: all ease 0.6s;
 }
 
-.portfolio-post-image:hover img {
-  /* 
-  -webkit-transform: translate3d(0,0,0);  
-  transform: translate3d(0,0,0); 
-  -webkit-transform: scale(1.03);
-  transform: scale(1.03);
-  */
-}
+article.post:hover .portfolio-post-image img {
+  opacity: 0.8;
 
-/* .portfolio-post-image:hover .overlay,
-.portfolio-post-image:hover h2,
-.portfolio-post-image:hover p.icon-links a,
-.portfolio-post-image:hover a.info {
-  -webkit-transform: scale(1.03);
-  transform: scale(1.03);
-} */
+}
 
 /* === FORMS === */
 

@@ -5,8 +5,15 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package Little_Fox
- */
+ */ 
 ?>
+<?php if ( is_single() ) { ?>
+
+
+
+
+<?php } ?>
+
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <header class="entry-header">

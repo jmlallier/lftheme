@@ -8,23 +8,17 @@
  */
 
 ?>
+<?php if ( has_post_thumbnail() ) { // check for feature image ?>
 <div class="column is-half-desktop">
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-  <?php if ( has_post_thumbnail() ) { // check for feature image ?>
+  <a href="<?php echo esc_url( get_permalink($post->ID) ) ?>"><article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   
-  <div class="portfolio-post-image">
+    <div class="category-portfolio-title title">
+      <?php the_title(); ?>
+    </div>
+    <div class="portfolio-post-image">
+      <?php the_post_thumbnail(); ?>
+    </div><!-- .post-image -->
     
-    
-      
-    <?php echo '<a href="' . get_permalink($post->ID) . '" >';
-      the_post_thumbnail();
-      echo '</a>'; ?>
-    
-  </div><!-- .post-image -->
-  <div class="category-portfolio-title">
-    <?php the_title( '<a href="' . esc_url( get_permalink() ) . '" class="info" rel="bookmark">', '</a>' ); ?>
-  </div>
-  <?php } ?>
-</article><!-- #post-## -->
+  </article></a><!-- #post-## -->
 </div>
+<?php } ?>
