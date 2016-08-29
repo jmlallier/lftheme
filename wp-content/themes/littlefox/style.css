@@ -484,6 +484,7 @@ section .header .headline-box:before {
   font-size: 18px;
   text-transform: uppercase;
   font-weight: bold;
+  white-space: normal;
 }
 
 .headline-box a h3:hover {
@@ -791,22 +792,27 @@ img.full-width {
   color: #333;
 }
 
+#contact form {
+  width: 80%;
+  margin-left: 10%;
+}
+
 input.submit,
 .submit {
   width: 100%;
   margin-top: 0;
   background-color: #fff !important;
   color: #999;
-  border: 2px solid transparent;
+  border: 1px solid #999;
   float: left;
-  -webkit-transition: border 00.6s ease-in, color 00.6s ease-in;
-  transition: border 00.6s ease-in, color 00.6s ease-in;
+  -webkit-transition: border 0.6s ease-in, color 0.6s ease-in;
+  transition: border 0.6s ease-in, color 0.6s ease-in;
 }
 
 .submit:hover, 
 .submit:focus {
   background-color: #fbfbfb;
-  border: 2px solid #111;
+  border: 1px solid #111;
   color: #333;
 }
 
@@ -1246,7 +1252,7 @@ article.post .portfolio-post-image {
   overflow: hidden;
   position: relative;
   display: inline-block;
-  background: black;
+  background: #333;
   padding: 0;
 }
 
@@ -1264,8 +1270,7 @@ article.post:hover .portfolio-post-image img {
 /* === FORMS === */
 
 form {
-  width: 80%;
-  margin-left: 10%;
+  width: 100%;
 }
 
 input[type="email"],

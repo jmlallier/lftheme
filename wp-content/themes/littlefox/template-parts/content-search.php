@@ -8,23 +8,17 @@
  */
 
 ?>
+<?php if ( has_post_thumbnail() ) { // check for feature image ?>
+<div class="column is-half-desktop">
+  <a href="<?php echo esc_url( get_permalink($post->ID) ) ?>"><article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+    <div class="category-portfolio-title title">
+      <?php the_title(); ?>
+    </div>
+    <div class="portfolio-post-image">
+      <?php the_post_thumbnail(); ?>
+    </div><!-- .post-image -->
 
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php littlefox_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
-
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
-
-	<footer class="entry-footer">
-		<?php littlefox_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
+    </article></a><!-- #post-## -->
+</div>
+<?php } ?>

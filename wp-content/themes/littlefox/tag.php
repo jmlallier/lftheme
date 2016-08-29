@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying archive pages.
+ * The template for displaying tag pages.
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -13,7 +13,7 @@ get_header(); ?>
   <div class="container">
     <div class="header">
       <div class="headline-box">
-        <?php the_archive_title( '<h3>', '</h3>' ); ?>
+        <?php single_tag_title(); ?>
       </div><!-- .headline-box -->
     </div><!-- .header -->
   </div>

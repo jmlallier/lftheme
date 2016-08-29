@@ -1,3 +1,14 @@
+
+<?php 
+/**
+ * Template part for displaying main page main content.
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package Little_Fox
+ */
+?>
+
 <?php
 $custom_logo_id = get_theme_mod( 'custom_logo' );
 $logo_image = wp_get_attachment_image_src( $custom_logo_id , 'full' );

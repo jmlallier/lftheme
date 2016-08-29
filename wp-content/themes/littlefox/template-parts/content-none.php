@@ -9,29 +9,23 @@
 
 ?>
 
-<section class="no-results not-found">
-	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'littlefox' ); ?></h1>
-	</header><!-- .page-header -->
+<section id="content-none" class="has-text-centered">
+  <?php
+  if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
 
-	<div class="page-content">
-		<?php
-		if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
+    <p><?php printf( wp_kses( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'littlefox' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
 
-			<p><?php printf( wp_kses( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'littlefox' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
+  <?php elseif ( is_search() ) : ?>
 
-		<?php elseif ( is_search() ) : ?>
+    <p><?php printf( esc_html__( 'It seems like there are no posts matching your search for %s. Try searching for something else.', 'littlefox' ), '<em>' . get_search_query() . '</em>' ); ?></p>
+    <?php
+      get_search_form();
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'littlefox' ); ?></p>
-			<?php
-				get_search_form();
+  else : ?>
 
-		else : ?>
+    <p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'littlefox' ); ?></p>
+    <?php
+      get_search_form();
 
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'littlefox' ); ?></p>
-			<?php
-				get_search_form();
-
-		endif; ?>
-	</div><!-- .page-content -->
+  endif; ?>
 </section><!-- .no-results -->

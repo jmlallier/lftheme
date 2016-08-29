@@ -1,6 +1,6 @@
 <?php 
 /**
- * The template for displaying 'Portfolio' category pages.
+ * The template for displaying 'portfolio' tag pages.
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
