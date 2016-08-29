@@ -89,27 +89,31 @@ $(document).ready(function() {
   });
   
   
+function ifMainPage() {
+  if($body.hasClass('home')) {
+    // Initialize Wookmark plugin
+    function getWindowWidth() {
+      return Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+    }
+    // Instantiate wookmark after all images have been loaded
+    var wookmark;
+    var galContainer = $('#gallery-container');
+    imagesLoaded(galContainer, function() {
+      wookmark = new Wookmark('#gallery-container', {
+        itemWidth: 350, // Optional min width of a grid item
+        offset: 6, // Optional the distance from grid to parent
+        flexibleWidth: function () {
+          // Return a maximum width depending on the viewport
+          return getWindowWidth() < 1024 ? '100%' : '50%';
+        },
+        autoResize: true,
+        fillEmptySpace: false,
 
-  // Initialize Wookmark plugin
-  function getWindowWidth() {
-    return Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
-  }
-  // Instantiate wookmark after all images have been loaded
-  var wookmark;
-  var galContainer = $('#gallery-container');
-  imagesLoaded(galContainer, function() {
-    wookmark = new Wookmark('#gallery-container', {
-      itemWidth: 350, // Optional min width of a grid item
-      offset: 6, // Optional the distance from grid to parent
-      flexibleWidth: function () {
-        // Return a maximum width depending on the viewport
-        return getWindowWidth() < 1024 ? '100%' : '50%';
-      },
-      autoResize: true,
-      fillEmptySpace: false,
-
+      });
     });
-  });
+  }
+}
+  ifMainPage();
 
   function init() {
     $window.on('resize', resize)
